@@ -4,7 +4,7 @@ const todoSchema = new Schema({
     title: String,
     steps: [{
         step: String,
-        completed: Boolean
+        complete: Boolean
     }],
     achieved: Boolean,
     difficulty: String,
