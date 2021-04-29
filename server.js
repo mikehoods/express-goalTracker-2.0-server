@@ -13,7 +13,7 @@ const PORT = 4000;
 app.use(cors());
 
 //connect to MongoDB
-const dbURI = 'mongodb+srv://PlantManATX:plants@cluster0.yr4sm.mongodb.net/much-to-do?retryWrites=true&w=majority'
+const MONGODB_URI = 'mongodb+srv://PlantManATX:plants@cluster0.yr4sm.mongodb.net/much-to-do?retryWrites=true&w=majority'
 mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(PORT))
     .catch(err => console.log(err));
