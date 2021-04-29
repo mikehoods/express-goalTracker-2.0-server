@@ -1,12 +1,13 @@
-express = require('express')
-mongoose = require('mongoose')
-cors = require('cors')
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+const todoRoutes = require('./routes/todoRoutes');
 
 //express app
 const app = express();
 
 //globals
-const PORT = 4000
+const PORT = 4000;
 
 //allow cross-origin requests
 app.use(cors());
@@ -19,4 +20,8 @@ mongoose.connect(dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 //middleware and static files
 app.use(express.static('public'));
+app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
+
+//todo routes
+app.use("/todos/", todoRoutes)
