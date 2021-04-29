@@ -15,7 +15,7 @@ app.use(cors());
 //connect to MongoDB
 const MONGODB_URI = 'mongodb+srv://PlantManATX:plants@cluster0.yr4sm.mongodb.net/much-to-do?retryWrites=true&w=majority'
 mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => app.listen(PORT))
+    .then(() => app.listen(process.env.PORT || PORT))
     .catch(err => console.log(err));
 
 //middleware and static files
