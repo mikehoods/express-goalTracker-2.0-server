@@ -23,5 +23,10 @@ app.use(express.static('public'));
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }));
 
+//redirect
+app.get('/', (req, res) => {
+    res.redirect('/todos')
+})
+
 //todo routes
-app.use("/todos/", todoRoutes)
+app.use("/todos", todoRoutes)
