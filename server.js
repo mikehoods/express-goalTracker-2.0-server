@@ -3,18 +3,16 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const todoRoutes = require('./routes/todoRoutes');
 
+require('dotenv').config()
+
 //express app
 const app = express();
-
-//globals
-const PORT = 4000;
 
 //allow cross-origin requests
 app.use(cors());
 
 //connect to MongoDB
-const MONGODB_URI = 'mongodb+srv://PlantManATX:plants@cluster0.yr4sm.mongodb.net/much-to-do?retryWrites=true&w=majority'
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => app.listen(process.env.PORT || PORT))
     .catch(err => console.log(err));
 
